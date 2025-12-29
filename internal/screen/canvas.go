@@ -45,7 +45,9 @@ func (c *canvas) Clear() {
 }
 
 func (c *canvas) PutPixel(x, y int, character rune, color Color) {
-	c.Cells[y][x] = pixel{Char: character, Color: color}
+	sx := c.Width/2 + x
+	sy := c.Height/2 + y
+	c.Cells[sy][sx] = pixel{Char: character, Color: color}
 }
 
 func (c *canvas) Render() {
